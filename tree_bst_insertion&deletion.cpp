@@ -45,15 +45,3 @@ int main(){
     a1->right=b2;
 
     inorder(root);
-
-    node* find = search(root,5);
-    if (find==nullptr){
-        cout<<"f off";
-    }
-    else{
-        cout<<"yay";
-    }
-
-    system("pause");
-    return 0;
-}
