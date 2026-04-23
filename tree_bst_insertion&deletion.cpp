@@ -45,7 +45,6 @@ Node* deleteNode(Node* node,int val){
         return node;
     }
 
-
     if (node->data<val){
         node->right=deleteNode(node->right,val);
     }
@@ -61,7 +60,7 @@ Node* deleteNode(Node* node,int val){
          else if (node->right==nullptr){
             Node* temp = node->left;
             delete node;
-            return temp; //
+            return temp;
         }
 
         else{ //2 child
