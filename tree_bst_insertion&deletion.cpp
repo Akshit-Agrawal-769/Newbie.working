@@ -1,26 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct node{
+struct Node{
     int data;
-    node* left=nullptr;
-    node* right=nullptr;
-    node(int value){
+    Node* left=nullptr;
+    Node* right=nullptr;
+    Node(int value){
         data=value;
     }
 };
 
-void inorder(node* node){
+void inorder(Node* node){
     if (node!=nullptr){
         inorder(node->left);
-        cout<<root->data<<' ';
+        cout<<node->data<<' ';
         inorder(node->right);
     }
 }
 
-node* insert(node* node,int val){
+Node* insert(Node* node,int val){
     if (node==nullptr){
-        node = new node(val);
+        node = new Node(val);
         return node;
     }
     if (val< node->data){
@@ -32,12 +32,53 @@ node* insert(node* node,int val){
     return node; //returns the unchanged nodes in the recursion stack while backtracking
 }  
 
+Node* minValue(Node* node) {
+    Node* cursor = node;
+    while (cursor && cursor->left != nullptr) {
+        cursor = cursor->left;
+    }
+    return cursor;
+}
+
+Node* deleteNode(Node* node,int val){
+    if (node==nullptr){
+        return node;
+    }
+
+
+    if (node->data<val){
+        node->right=deleteNode(node->right,val);
+    }
+    if (node->data>val){
+        node->left=deleteNode(node->left,val);
+    }
+    if (node->data==val){
+        if (node->left==nullptr){ // less than 2 child
+            Node* temp = node->right;
+            delete node;
+            return temp; //
+        }
+         else if (node->right==nullptr){
+            Node* temp = node->left;
+            delete node;
+            return temp; //
+        }
+
+        else{ //2 child
+            Node* temp = minValue(node->right);
+            node->data = temp->data;
+            node->right=deleteNode(node->right,temp->data);
+        }
+    }
+    return node;
+}
+
 int main(){
-    node* root = new node(4);
-    node* a1 = new node(2);
-    node* a2 = new node(5);
-    node* b1 = new node(1);
-    node* b2 = new node(3);
+    Node* root = new Node(4);
+    Node* a1 = new Node(2);
+    Node* a2 = new Node(5);
+    Node* b1 = new Node(1);
+    Node* b2 = new Node(3);
 
     root->left=a1;
     root->right=a2;
