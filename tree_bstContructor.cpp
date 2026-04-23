@@ -25,7 +25,9 @@ Node* insert(Node* node,int val){
     return node;
 }  
 
-
+Node* bst_constructor(int sortedArr,int start, int end){
+    int mid=(start+end)/2;
+}
 
 int main(){
 
