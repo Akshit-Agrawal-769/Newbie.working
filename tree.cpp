@@ -52,6 +52,10 @@ int main(){
 
 
     inorder(root);
+    cout<<endl;
+    preorder(root);
+    cout<<endl;
+    postorder(root);
 
     system("pause");
     return 0;
