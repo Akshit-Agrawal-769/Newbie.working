@@ -36,10 +36,21 @@ void postorder(node* root){
 
 int main(){
     node* root= new node(4);
-    node* a= new node(1);
-    node* b= new node(2);
-    node* c= new node(3);
-    node* d= new node(5);
-    node* e= new node(6);
-    node* f= new node(7);
+    node* a1= new node(1);
+    node* a2= new node(2);
+    node* l1= new node(3);
+    node* l2= new node(5);
+    node* l3= new node(6);
+    node* l4= new node(7);
+
+    root->left=a1;
+    root->right=a2;
+    a1->left=l1;
+    a1->right=l2;
+    a2->left=l3;
+    a2->right=l4;
+
+
+    inorder(root);
 }
+
