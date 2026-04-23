@@ -19,5 +19,21 @@ void inorder(node* root){
 }
 
 node* search(node* root, int val){
+    node* cursor =root;
+    while (cursor!=nullptr){
+        if (cursor->data==val){
+            return cursor;
+        }
+        else if (cursor->data>val){
+            cursor=cursor->left;
+        }
+        else{
+            cursor=cursor->right;
+        }
+    }
+    return cursor;
+}
+
+int main(){
     
 }
