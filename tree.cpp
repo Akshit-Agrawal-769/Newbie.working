@@ -35,5 +35,11 @@ void postorder(node* root){
 }
 
 int main(){
-   
+    node* root= new node(4);
+    node* a= new node(1);
+    node* b= new node(2);
+    node* c= new node(3);
+    node* d= new node(5);
+    node* e= new node(6);
+    node* f= new node(7);
 }
