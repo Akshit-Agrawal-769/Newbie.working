@@ -34,6 +34,17 @@ node* search(node* root, int val){
     return cursor;
 }
 
+
+
+node* searchRecursion(node* root, val){
+    node* cursor = root;
+    if(cursor)==nullptr{
+        return nullptr
+    }
+    
+}
+
+
 int main(){
     node* root = new node(4);
     node* a1 = new node(2);
