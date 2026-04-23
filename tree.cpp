@@ -34,6 +34,21 @@ void postorder(node* root){
     }
 }
 
+node* populate(){
+    int val;
+    cin>>val;
+    if(val==-1) return nullptr;
+
+    node* root=new node(val);
+    cout<<"Enter left beti of "<<val<<": ";
+    root->left=populate();
+    cout<<"Enter right beti of "<<val<<": ";
+    root->right=populate();
+
+    return root;
+}
+
+
 int main(){
     node* root= new node(4);
     node* a1= new node(2);
