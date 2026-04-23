@@ -29,7 +29,7 @@ node* insert(node* node,int val){
      if (val> node->data){
         node->right=insert(node->right, val);
     } 
-    return node;
+    return node; //returns the unchanged nodes in the recursion stack while backtracking
 }  
 
 int main(){
@@ -45,3 +45,8 @@ int main(){
     a1->right=b2;
 
     inorder(root);
+
+    system("pause");
+    return 0;
+
+}
