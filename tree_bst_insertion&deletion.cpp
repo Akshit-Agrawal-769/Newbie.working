@@ -33,8 +33,9 @@ Node* insert(Node* node,int val){
 }  
 
 Node* minValue(Node* node) {
+    if(node==nullptr) return nullptr;
     Node* cursor = node;
-    while (cursor && cursor->left != nullptr) {
+    while (cursor->left != nullptr) {
         cursor = cursor->left;
     }
     return cursor;
@@ -48,10 +49,10 @@ Node* deleteNode(Node* node,int val){
     if (node->data<val){
         node->right=deleteNode(node->right,val);
     }
-    if (node->data>val){
+    else if (node->data>val){
         node->left=deleteNode(node->left,val);
     }
-    if (node->data==val){
+    else{
         if (node->left==nullptr){ // less than 2 child
             Node* temp = node->right;
             delete node;
