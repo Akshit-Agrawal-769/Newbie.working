@@ -38,6 +38,17 @@ void pop(Stack &stack){
     }
 }
 
+void popLL(Node* &head){
+    if(head==nullptr){
+        cout<<'underflow'<<' ';
+        return;
+    Node* temp = head;
+    head=head->next;
+    cout<<temp;
+    delete temp;
+    }
+}
+
 void traverse(Stack stack){
     int i=0;
     while (i <= stack.top){
@@ -45,6 +56,7 @@ void traverse(Stack stack){
         i++;
     }
 }
+
 
 int main(){
 
