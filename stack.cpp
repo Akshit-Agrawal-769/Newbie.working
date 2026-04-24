@@ -6,6 +6,11 @@ struct Stack{
     int arr[10];
 };
 
+struct Node{
+    int val;
+    Node* next;
+};
+
 void push(Stack &stack, int val){
     if(stack.top>=9){
         cout<<'overflow'<<endl;
@@ -14,6 +19,13 @@ void push(Stack &stack, int val){
         stack.top++;
         stack.arr[stack.top]=val;
     }
+}
+
+void pushLL(Node* &head,int data){
+    Node* newnode = new Node;
+    newnode->val=data;
+    newnode->next=head;
+    head=newnode;
 }
 
 void pop(Stack &stack){
@@ -32,4 +44,11 @@ void traverse(Stack stack){
         cout<<stack.arr[i]<<' ';
         i++;
     }
+}
+
+int main(){
+
+    
+    system("pause");
+    return 0;
 }
