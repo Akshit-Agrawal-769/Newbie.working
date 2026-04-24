@@ -10,15 +10,6 @@ struct Node{
     }
 };
 
-Node* insert(Node* root, int val){
-    if(root==nullptr) return new Node(val);
-    if(val < root->data)
-        root->left=insert(root->left, val);
-    if(val > root->data)
-        root->right=insert(root->right, val);
-    return root;
-}
-
 Node* bst_constructor(int arr[], int start, int end){
     if(start > end) return nullptr;      
 
