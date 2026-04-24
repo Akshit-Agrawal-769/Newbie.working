@@ -25,3 +25,11 @@ void pop(Stack &stack){
         stack.top--;
     }
 }
+
+void traverse(Stack stack){
+    int i=0;
+    while (i <= stack.top){
+        cout<<stack.arr[i]<<' ';
+        i++;
+    }
+}
