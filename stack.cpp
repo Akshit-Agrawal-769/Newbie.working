@@ -57,6 +57,14 @@ void traverse(Stack stack){
     }
 }
 
+void traverseLL(Node* head){
+    Node* cursor=head;
+    while(cursor=nullptr){
+        cout<<cursor->val<<' ';
+        cursor=cursor->next;
+    }
+    cout<<endl;
+} 
 
 int main(){
 
