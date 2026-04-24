@@ -52,7 +52,81 @@ void insertPos(Node* &head, int val, int pos){
     }
     newNode->next=cursor->next;
     cursor->next=newNode;
+}
 
+// Delete at beginning
+void deleteBegin(Node* &head){
+    if(head==nullptr){
+        cout<<"List empty\n";
+        return;
+    }
+    Node* temp=head;
+    head=head->next;
+    delete temp;
+}
+
+
+void deleteEnd(Node* &head){
+    if(head==nullptr){
+        cout<<"List empty\n";
+        return;
+    }
+    if(head->next==nullptr){  // only one node
+        delete head;
+        head=nullptr;
+        return;
+    }
+    Node* cursor=head;
+    while(cursor->next->next!=nullptr){
+        cursor=cursor->next;
+    }
+    delete cursor->next;
+    cursor->next=nullptr;
+}
+
+
+void deletePos(Node* &head, int pos){
+    if(head==nullptr){
+        cout<<"List empty\n";
+        return;
+    }
+    if(pos==0){
+        deleteBegin(head);
+        return;
+    }
+    Node* cursor=head;
+    for(int i=0;i<pos-1;i++){
+        if(cursor->next==nullptr){
+            cout<<"Position out of range\n";
+            return;
+        }
+        cursor=cursor->next;
+    }
+    Node* temp=cursor->next;
+    cursor->next=temp->next;
+    delete temp;
+}
+
+void deleteVal(Node* &head, int val){
+    if(head==nullptr){
+        cout<<"List empty\n";
+        return;
+    }
+    if(head->data==val){
+        deleteBegin(head);
+        return;
+    }
+    Node* cursor=head;
+    while(cursor->next!=nullptr){
+        if(cursor->next->data==val){
+            Node* temp=cursor->next;
+            cursor->next=temp->next;
+            delete temp;
+            return;
+        }
+        cursor=cursor->next;
+    }
+    cout<<"Value not found\n";
 }
 
 int main(){
