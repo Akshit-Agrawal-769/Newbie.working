@@ -3,9 +3,25 @@ using namespace std;
 
 struct Node{
     int data;
-    Node* left=nullptr;
-    Node* right=nullptr;
-    Node(int value){
-        data=value;
-    }
+    Node* next=nullptr;
 };
+
+void traverse(Node* node){
+    Node* cursor= node;
+    while (cursor=nullptr){
+        cout<<cursor<<endl;
+        cursor=cursor->next;
+    }
+}
+
+void insert(){
+
+}
+
+void delete(){
+
+}
+
+int main(){
+    
+}
